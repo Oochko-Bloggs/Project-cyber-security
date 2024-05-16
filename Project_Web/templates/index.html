@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Төсөл</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="../static/css/main.css">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="../static/img/favicon.ico"> 
+</head>
+<body>
+  <section>
+    <header>
+      <!-- Menu bar -->
+
+      <a href="#" class="Logo">Hicheejiinoo</a>
+      <ul class="list">
+        <li><a href="#">Help</a></li>
+        <li><a href="https://github.com/iderected/F.NS252-Project.git" target="_blank">About</a></li>
+        <li><button class="log out" id="logoutBtn" onclick="logout()">Log out <ion-icon name="log-out-outline"></ion-icon></button></li>
+      </ul>
+    </header>
+    <section class="main-container">
+
+      <!-- SQLite  -->
+      <form action="" method="">
+        <div class="block border" id="field1">
+          <div class="content">
+            <a href="#div1">
+              <img src="../static/img/SQLite-removebg-preview.png" alt="">
+              <h2 class="header">SQLite</h2>
+            </a>
+          </div>
+        </div>
+        <div class="overlay" id="div1">
+          <div class="wrapper1">
+            <h2 class="header">SQLite</h2>
+            <a href="#" class="close">&times;</a>
+            <div class="sub-content-sql">
+                  <!-- Option Container END -->
+                  <div class="myInput">
+                    <form action="/query" method="POST">
+                      <div class="query">
+                        <h2>Write your query here</h2>
+                        <input type="text">
+                      </div>
+                    </form>
+                    <form action="/add_record" method="POST">
+                      <div class="minput">
+                        <h2>Add a record</h2>
+                        <input type="text" placeholder="First name">
+                        <input type="text" placeholder="Last name">
+                        <input type="text" placeholder="student id">
+                      </div>
+                    </form>
+                    <form action="/update_record" method="POST">
+                      <div class="minput">
+                        <h2>Update a record</h2>
+                        <input type="text" placeholder="column name">
+                        <input type="text" placeholder="new value">
+                        <input type="text" placeholder="old value">
+                      </div>
+                    </form>
+
+                    <form action="/Delete_record" method="POST">
+                      <div class="minput">
+                        <h2>Delete a record</h2>
+                        <input type="text" placeholder="column name">
+                        <input type="text" placeholder="value">
+                      </div>
+                    </form>  
+
+                    <form action="/rename_table" method="POST">
+                      <div class="minput">
+                        <h2>Rename a table</h2>
+                        <input type="text" placeholder="table name">
+                      </div>
+                    </form>
+
+                    <form action="/add_column" method="POST">
+                      <div class="minput">
+                        <h2>Add a column</h2>
+                        <input type="text" placeholder="old name">
+                        <input type="text" placeholder="new name">
+                      </div>
+                    </form>
+
+                    <form action="/delete_column" method="POST">
+                      <div class="minput">
+                        <h2>Delete a column</h2>
+                        <input type="text" placeholder="column name">
+                        <input type="text" placeholder="data type">
+                      </div>
+                    </form>
+
+                    <form action="/rename_column" method="POST">
+                      <div class="minput">
+                        <h2>Rename a column</h2>
+                        <input type="text" placeholder="column name">
+                      </div>
+                      <div>
+                    </form>
+
+                    <label><input type="checkbox">Show all</label>
+                    </div>
+                    <button class="button">Action</button>
+                  </div>
+
+                  <!-- Result field-->
+                  <div id="result">
+
+                  <div>
+                </div>  
+                <!-- Option Input END-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- IP address lookup -->
+
+      <form action="/ipgeo" method="POST">
+        <div class="block border" id="field2">
+          <div class="content">
+            <a href="#div2">
+              <img src="../static/img/ip-removebg-preview.png" alt="" width="200" height="200">
+              <h2 class="header">IP address lookup</h2>
+            </a>
+          </div>
+        </div>
+        <div class="overlay" id="div2">
+          <div class="wrapper">
+            <h2 class="header">IP address lookup</h2>
+            <a href="#" class="close">&times;</a>
+            <div class="sub-content">
+              <div class="container">
+                <h2>Please insert your <a>IP</a> address</h2>
+                <div class="input-grp">
+                  <ion-icon name="location-outline" class="sub-ion"></ion-icon>
+                  <input type="text" name="ip_address" placeholder="IP address" class="input">
+                  <button type="submit" class="button">Submit</button>
+                </div>
+                <div class="result">
+                  <h2>Result:</h2>
+                  {% if country %}
+                    <p>Country: {{ country }}</p>
+                  {% endif %}
+                  {% if city %}
+                    <p>City: {{ city }}</p>
+                  {% endif %}
+                  {% if latitude and longitude %}
+                    <p>Latitude: {{ latitude }}</p>
+                    <p>Longitude: {{ longitude }}</p>
+                  {% endif %}
+                </div>
+                <div class="google_map">
+                  <h2><a href="{{ maps_url }} target="_blank"">View on Map</a></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- WEB TECHNOLOGY -->
+
+      <form action="/webtech" method="POST">
+        <div class="block border" id="field3">
+          <div class="content">
+            <a href="#div3">
+              <img src="../static/img/web-removebg-preview.png" alt="" width="200" height="200">
+              <h2 class="header">Web technology</h2>
+            </a>
+          </div>
+        </div>
+        <div class="overlay" id="div3">
+          <div class="wrapper">
+            <h2 class="header">Web technology</h2>
+            <a href="#" class="close">&times;</a>
+            <div class="sub-content">
+              <div class="container">
+                <h2>Please insert your <a>URL</a></h2>
+                <div class="input-grp">
+                  <ion-icon name="globe-outline" class="sub-ion"></ion-icon>
+                  <input type="text" name="ip_address" placeholder="URL" class="input">
+                  <button type="submit" class="button">Submit</button>
+                </div>
+                <div class="result">
+                  <h2>Results:</h2>
+                  <ul>
+                    {% for technology, version in results %}
+                      <li>{{ technology }}: {{ version }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </section>
+
+<!-- scripts -->
+
+<script src="../particles.js"></script>
+<script src="../static/js/app.js"></script>
+<script src="../static/js/custom.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+
+
+<!-- LOG OUT SECTION-->
+
+<script>
+  function logout() {
+    // Make an AJAX request to the server to log out the user
+    fetch('/logout', { method: 'POST' })
+        .then(response => {
+            // Redirect the user to the login page
+            window.location.href = '/login';
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+/*
+$(document).ready(function() {
+  $('button[type="submit"]').click(function() {
+    $('.result').show();
+  });
+});*/
+
+</script>
+</body>
+</html>

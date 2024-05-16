@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Төсөл</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="icon" type="image/x-icon" sizes="64x64" href="../static/img/favicon.ico">
+  <link rel="stylesheet" media="screen" href="../static/css/style.css">
+</head>
+<body>
+
+<!-- particles.js container -->
+<div id="particles-js">
+    <div class="form-box">
+        <div class="form-value">
+            <div class="switch">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            <!-- Login Form -->
+
+            <form action="/login" method="post" id="Login">
+                <h2>Login</h2>
+                <div class="inputbox">
+                    <ion-icon name="mail" ></ion-icon>
+                    <input type="email" name="email" required id="input" autocomplete="off" autofocus>
+                    <label for="">Email</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-open"></ion-icon>
+                    <input type="password" name="password" required id="input" autocomplete="off">
+                    <label for="">Password</label>
+                </div>
+                <div class="forget">
+                    <!--<ion-checkbox id="myCheckbox" name="remember_me">Remember me</ion-checkbox>-->
+                    <label for="">Remember me</label>
+                    <input type="checkbox" name="remember_me" class="input-bx">
+                </div>
+<!--                
+                <div class="forget">
+                    <ion-checkbox id="myCheckbox">Remember me</ion-checkbox>
+                    <a href="#">Forget Password ?</a>
+                </div>
+-->             
+                <button type="submit" class="button">Log In</button>
+                
+            </form>
+
+            <!-- Registration Form -->
+            
+            <form action="/register" method="post" id="Register">
+                <h2>Register</h2>
+                <div class="inputbox">
+                    <ion-icon name="person"></ion-icon>
+                    <input type="text" required autocomplete="off" id="input" name="username">
+                    <label for="">User name</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="mail-open"></ion-icon>
+                    <input type="email" required id="input" name="email" autocomplete="off">
+                    <label for="">Email</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed"></ion-icon>
+                    <input type="password" id="input" required  autocomplete="off" name="password">
+                    <label for="">New Password</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="eye-outline" class="toggle-pass"></ion-icon>
+                    <input type="password" required autocomplete="off" class="pass" id="input" name="repeat_password">
+                    <label for="">Repeat Password</label>
+                </div>
+
+                <button type="submit" class="button">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+
+<script src="../static/js/particles.js"></script>
+<script src="../static/js/app.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+<script>
+    var x = document.getElementById("Login");
+    var y = document.getElementById("Register");
+    var z = document.getElementById("btn");
+    var formContainer = document.querySelector(".form-box");
+    function register(){
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+        formContainer.style.height = "580px";
+    }
+
+    function login(){
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0";
+        formContainer.style.height = "450px";
+    }   
+
+    var show = document.getElementsByClassName("show_password");
+    var hide = document.getElementsByClassName("hide_password");
+
+    function show(){
+        show.classList.add("hidden");
+        hide.classList.remove("hidden");
+    }
+
+    function hide(){
+        show.classList.remove("hidden");
+        hide.classList.add("hidden");
+    }
+
+    const togglePassword = document.querySelector('.toggle-pass');
+    const passwordInput = document.querySelector('.pass');
+
+    togglePassword.addEventListener('click',function(){
+        if (passwordInput.type === 'password'){
+            passwordInput.type = 'text';
+            togglePassword.name = 'eye-off-outline';
+        } else {
+            passwordInput.type = 'password';
+            togglePassword.name = 'eye-outline' ;
+        }
+    });
+
+</script>
+</body>
+</html>

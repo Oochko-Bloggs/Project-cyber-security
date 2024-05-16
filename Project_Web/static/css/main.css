@@ -1,0 +1,454 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+
+/* =============================================================================
+   My CSS
+   ========================================================================== */
+
+/* ---- base ---- */
+
+html,body{ 
+	width:100%;
+	height:100%;
+	background:#141414;
+}
+
+html{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+  font:normal 75% 'Poppins', sans-serif;
+}
+
+canvas{
+  display:block;
+  vertical-align:bottom;
+}
+
+
+/* ===== Main section ===== */
+
+
+/* ===== Card =====*/
+
+
+.main-container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+/*.border{
+  align-items: center;
+  color: #fff;
+  width: 350px;
+  height: 450px;
+  border: #fff 2px solid;
+  background: #13E8E9;
+}*/
+
+.block{
+  position: relative;
+  top: -60px;
+  width: 360px;
+  height: 400px;
+  /*background-color: rgba(0, 0, 0, 0.5);*/
+  background: linear-gradient(0deg , black, rgb(44, 43, 43));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 18px;
+  transition: .5s ease-in;
+}
+
+.block::before{
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: #474343;
+  transition: .5s ease-in-out;
+}
+
+.block:hover::before{
+  content: '';
+  width: 160px;
+  background: #fff;
+  animation: rotate 4s linear infinite;
+}
+
+.block::after{
+  content: '';
+  position: absolute;
+  background: linear-gradient(0deg , black, rgb(44, 43, 43));
+  inset: 5px;
+  border-radius: 18px;
+}
+
+@keyframes rotate {
+  form{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+
+/* [=] [=] [=] TEST SECTION [=] [=] [=] */
+
+.block.clicked{
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(15)px;
+}
+/*
+.overlay{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target{
+  visibility: visible;
+  opacity: 1;
+}
+
+.wrapper{
+  margin: 70px auto;
+  padding: 20px;
+  background: #e7e7e7;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.wrapper .close{
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+}
+
+.wrapper .content{
+  max-height: 30%;
+  overflow: auto;
+}*/
+
+
+
+
+.content{
+  z-index: 2;
+  color: rgb(244, 244, 244);
+  font-size: 10em;
+}
+
+/* ====== Search Bar  ======*/
+
+
+header{
+  position: relative;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .Logo{
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+header ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li ,.log{
+  list-style: none;
+  margin-left: 20px;
+}
+
+header ul li a ,.log{
+  text-decoration: none;
+  padding: 6px 15px;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+header ul li a:hover ,
+header ul li a:active,
+.log:hover,
+.log:active{
+  background-color: #fff;
+  color: #2b1055;
+}
+
+.log{
+  background: transparent;
+  font-size: 15px;
+  padding-bottom: 15px;
+}
+
+ion-icon{
+  position: relative;
+  top: 6px;
+  font-size: 21px;
+}
+
+/*  POP UP WINDOW */
+
+.container{
+  background: #141414;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header{
+  text-align: center;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay:target{
+  visibility: visible;
+  opacity: 1;
+}
+
+.wrapper{
+  position: relative;
+  margin: 70px;
+  padding: 20px;
+  background: #131313;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+  width: 700px;
+  height: 780px;
+}
+
+.wrapper1{
+  position: relative;
+  margin: 70px;
+  padding: 20px;
+  background: #131313;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+  height: 780px;
+  width: 130vh;
+}
+
+.wrapper h2, .wrapper1 h2 , h2{
+  margin-top: 0;
+  color: white;
+}
+
+.close{
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  width: 700px;
+  height: 780px;
+}
+
+
+/*  POP UP CONTENTS  */
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sub-ion{
+  position: absolute;
+  color: white;
+  top: 182px;
+  left: 185px;
+}
+
+.input{
+  top: 120px;
+  background: transparent;
+  margin: 30px 0;
+  width: 100%;
+  height: 50px;
+  outline: none;
+  font-size: 1.2em;
+  padding: 0 35px 0 5px;
+  border: none;
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.button{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition:all .2s ease-in-out;
+}
+
+.button:hover{
+  color: white;
+  /*background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(228,242,242,1) 22%, rgba(255,255,255,1) 58%); */
+  background-color: rgba(50, 96, 121, 0.63);
+}
+
+.result{
+  position: absolute;
+  top: 300px;
+  width: 600px;
+  height: 200px;
+  color: white;
+  font-size: 1.5em;
+  display: block;
+}
+
+.google_map{
+  position: absolute;
+  bottom: 20px;
+  width: 600px;
+  height: 250px;
+  text-align: center;
+  transition: .5s ease-in-out;
+}
+.google_map a{
+  color: grey;
+}
+
+.google_map:hover, .google_map a:hover{
+  text-decoration: underline;
+  color: white;
+  transform: translateY(-5px);
+}
+
+.myInput label{
+  font-size: 1.3em;
+  color: white;
+}
+
+.myInput button{
+  
+  position: relative;
+  top: 20px;
+  left: 10px;
+  width: 260px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition:all .2s ease-in-out;
+
+  
+
+}
+
+.myInput button:hover{
+  color: white;
+  /*background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(228,242,242,1) 22%, rgba(255,255,255,1) 58%); */
+  background-color: rgba(50, 96, 121, 0.63);
+}
+
+.myInput input{
+    background: transparent;
+    width: 120px;
+    outline: none;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    font-size: 16px;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+.query input{
+  width: 40%;
+}
+
+#result{
+  position: relative;
+  margin: 80px;
+  background-color: white;
+  width: 600px;
+  height: 550px;
+}
+
+.sub-content-sql{
+  display: flex;
+}
